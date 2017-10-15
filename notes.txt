@@ -1,0 +1,35 @@
+
+--
+
+adverb_place article adjective_B noun_B
+referent adjective_W noun_W
+article adjective_W noun_W
+
+In the twilight rain
+these brilliant-hued hibiscus
+A lovely sunset.
+
+article adjective_B adjective_B noun_N
+article noun_W verb_W adverb_place article noun_N
+exclamation_W noun_B adverb_time
+
+An old silent pond...
+A frog jumps into the pond,
+splash! Silence again.
+
+--
+
+haiku := r1 r2 r3
+
+r1 := [adverb] [artref] adjective* noun
+
+r2 := [artref] adjective* noun
+	| artref noun verb [adverb_place] article [adjective] noun
+
+r3 := artref adjective* noun
+	| exclamation noun adverb
+
+adverb := adverb_place | adverb_time
+
+artref := article | referent
+
